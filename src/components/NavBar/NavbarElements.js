@@ -21,12 +21,12 @@ export const Nav = styled.nav`
 
 export const NavbarContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 80px;
   z-index: 1;
   width: 100%;
   padding: 0 24px;
-  max-width: 1100px;
+  // max-width: 1100px;
 `;
 
 export const NavLogo = styled(LinkR)`
@@ -70,6 +70,8 @@ export const NavMenu = styled.ul`
 
 export const NavItem = styled.li`
   height: 80px;
+  display: flex;
+  align-items: center;
 `;
 
 export const NavLinks = styled(LinkS)`
@@ -96,8 +98,9 @@ export const NavBtn = styled.nav`
 `;
 
 export const NavBtnLink = styled(LinkR)`
+
   border-radius: 50px;
-  backgroud: #01bf71;
+  background: #01bf71;
   white-space: nowrap;
   padding: 10px 22px;
   color: #010606;
