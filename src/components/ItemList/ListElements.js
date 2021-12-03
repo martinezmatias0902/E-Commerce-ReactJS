@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
-const ListElements = styled.div`
+ const Container = styled.div`
+  
+  padding: 0 24px;
+  margin: 5vw 5vw 2vh 5vw;
   display: flex;
-  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 5rem;
-`;
+  align-items: center;
+`
 
-export default ListElements;
+export default Container;

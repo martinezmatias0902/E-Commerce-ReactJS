@@ -12,6 +12,9 @@ import {
   NavBtn,
   NavBtnLink,
 } from "./NavbarElements";
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import { yellow, blueGrey } from "@mui/material/colors";
 //<></>
 
 const Navbar = () => {
@@ -19,7 +22,11 @@ const Navbar = () => {
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo to="/">CoderHouse</NavLogo>
+          <NavLogo to="/">
+            <Stack direction="row" spacing={2}>
+              <Avatar sx={{ bgcolor: yellow[500], color: blueGrey[900] }}>CH</Avatar>
+            </Stack>
+          </NavLogo>
           <MobileIcon>
             <FaBars />
           </MobileIcon>
@@ -37,9 +44,9 @@ const Navbar = () => {
               <Cart />
             </NavItem>
           </NavMenu>
-          <NavBtn>
+          {/* <NavBtn>
             <NavBtnLink to="/signin">Sign In</NavBtnLink>
-          </NavBtn>
+          </NavBtn> */}
         </NavbarContainer>
       </Nav>
     </>
