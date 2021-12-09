@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 //<></> {}
 
 const ItemCount = ({initial, stock }) => {
-  console.log(initial, stock)
   let [itemCount, setState] = useState(Number(initial))
 
   const addItem = () => {
@@ -38,6 +37,7 @@ const ItemCount = ({initial, stock }) => {
         borderRadius: 2,
         p: 1,
         m: 2,
+        mt: 0,
         color: '#000',
         display: 'flex', flexWrap: 'wrap',
         justifyContent: 'center',

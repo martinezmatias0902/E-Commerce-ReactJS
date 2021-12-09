@@ -1,6 +1,6 @@
 import React from "react";
 import { FaBars } from "react-icons/fa";
-import Cart from "./Cart"
+import Cart from "../CartWidget/CartWidget"
 import {
   Nav,
   NavbarContainer,
@@ -8,10 +8,8 @@ import {
   MobileIcon,
   NavMenu,
   NavItem,
-  NavLinks,
-  NavBtn,
-  NavBtnLink,
-} from "./NavbarElements";
+  NavLinks
+} from "./NavbarStyles";
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { yellow, blueGrey } from "@mui/material/colors";

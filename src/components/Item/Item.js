@@ -4,22 +4,29 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import img from '../../images/descarga.jpg'
-import ItemCount from '../ItemCount'
+import ItemCounter from '../ItemCounter/ItemCounter'
 import CircularProgress from '@mui/material/CircularProgress';
 
-
-
 const ItemRowElement = ({ data }) => {
-  const { type, nombre, initial, stock, price } = data
-
+  
   const [loading, setLoading] = useState(true)
+  const {  title, available_quantity, price, thumbnail } = data
 
   useEffect(() => {
-      setTimeout(() => {
-          setLoading(false)
-      }, 2000)
+    setTimeout(() => {
+        setLoading(false)
+    }, 2000)
   }, [])
+  
+  const checkSellerNickName = () => {
+    if (data.seller === undefined) {
+      return "Eshop Online"
+    } else if (data.seller.eshop === undefined) {
+      return "Eshop Online"
+    } else {
+      return data.seller.eshop.nick_name
+    }
+  }
 
   return (
     <Card sx={{ 
@@ -45,28 +52,29 @@ const ItemRowElement = ({ data }) => {
         :
         <CardMedia
           component="img"
-          alt={nombre}
+          alt={title}
           height="220"
-          image={img}
+          image={thumbnail}
         />
       }
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {type}
+        <Typography gutterBottom variant="h6" component="div">
+          {checkSellerNickName()}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          No te lo pierdas! {type} {nombre}
+          {title}
         </Typography>
         <Typography align="center" color="green" sx={{ fontWeight:'semiBold', pt:3 }}>
           Precio: $ {price}
         </Typography>
-        
+        <Typography align="center" sx={{ fontWeight:'semiBold', pt:3, pb:0, mb:0 }}>
+          Cantidad:
+        </Typography>
       </CardContent>
-      <CardActions>
-        <ItemCount initial={initial} stock={stock}></ItemCount>
+      <CardActions  sx={{ pt:0, mt:0 }}>
+        <ItemCounter initial={0} stock={available_quantity}></ItemCounter>
       </CardActions>
     </Card>
-    
   )
 }
 export default ItemRowElement;
