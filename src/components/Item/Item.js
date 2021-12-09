@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import ItemCounter from '../ItemCounter/ItemCounter'
 import CircularProgress from '@mui/material/CircularProgress';
 
-const ItemRowElement = ({ data }) => {
+const Item = ({ data }) => {
   
   const [loading, setLoading] = useState(true)
   const {  title, available_quantity, price, thumbnail } = data
@@ -77,4 +77,4 @@ const ItemRowElement = ({ data }) => {
     </Card>
   )
 }
-export default ItemRowElement;
+export default Item;

@@ -32,7 +32,7 @@ const ListItem = () => {
       return products
     }
     catch (err) {
-      console.log("Error al realizar request: " + err)
+      console.log("Error al realizar request en ListItem: " + err)
       return err
     }
   }
@@ -47,11 +47,7 @@ const ListItem = () => {
   return (
     <>
       <Container>
-        <Grid container justifyContent="center" spacing={2} xs={{
-        columnGap: 3,
-        rowGap: 1,
-        flexGrow: 1
-        }}>
+        <Grid container justifyContent="center" spacing={2} >
           {
             ProductsList.map( (product) => {
               return (
