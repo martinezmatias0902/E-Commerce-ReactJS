@@ -5,8 +5,9 @@ In this course, which is the third level of the programming career, you will lea
 ## How to test
 
 1. Clone the Repo
-2. Run 'npm start' on terminal
-3. Open [http://localhost:3000]
+2. npm i
+3. Run 'npm start' on terminal
+4. Open [http://localhost:3000]
 
 ---
 
