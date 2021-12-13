@@ -6,11 +6,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCounter from '../ItemCounter/ItemCounter'
 import CircularProgress from '@mui/material/CircularProgress';
+import Button from "@mui/material/Button";
+import { Link } from 'react-router-dom'
 
 const Item = ({ data }) => {
   
   const [loading, setLoading] = useState(true)
-  const {  title, available_quantity, price, thumbnail } = data
+  const {  id, title, available_quantity, price, thumbnail } = data
 
   useEffect(() => {
     setTimeout(() => {
@@ -30,17 +32,17 @@ const Item = ({ data }) => {
 
   return (
     <Card sx={{ 
-    minHeight: 450, 
-    maxHeight: 500, 
-    maxWidth: 300,
-    p:1, 
-    boxShadow: 1, 
-    borderRadius: 2 ,
-    display: 'flex',
-    flexDirection: 'column',
-    flexWrap: 'nowrap',
-    justifyContent: 'center',
-    alignItems: 'center'
+      maxWidth: 345, 
+      p:1, 
+      border: 2,
+      boxShadow: 7, 
+      borderRadius: 2 ,
+      borderColor: '#04293A',
+      display: 'flex',
+      flexDirection: 'column',
+      flexWrap: 'nowrap',
+      justifyContent: 'center',
+      alignItems: 'center'
     }}>
       {
         loading
@@ -53,12 +55,16 @@ const Item = ({ data }) => {
         <CardMedia
           component="img"
           alt={title}
-          height="220"
           image={thumbnail}
+          margin= 'auto'
+          display= 'block'
+          maxWidth= '100%'
+          maxHeight= '100%'
+          sx={{ borderBottom: 2, borderColor:'#064663' }}
         />
       }
-      <CardContent>
-        <Typography gutterBottom variant="h6" component="div">
+      <CardContent component='div' sx={{ pr:2, pl:2, m:0 }}>
+        <Typography variant="h6" component="div" sx={{ borderTop: 2, borderColor:'#064663' }}>
           {checkSellerNickName()}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -68,12 +74,15 @@ const Item = ({ data }) => {
           Precio: $ {price}
         </Typography>
         <Typography align="center" sx={{ fontWeight:'semiBold', pt:3, pb:0, mb:0 }}>
-          Cantidad:
+          Stock: {available_quantity}
         </Typography>
       </CardContent>
-      <CardActions  sx={{ pt:0, mt:0 }}>
+      <CardActions>
         <ItemCounter initial={0} stock={available_quantity}></ItemCounter>
       </CardActions>
+      <Link to={`/products/${id}`} style={{ textDecoration: 'none' }}>
+        <Button variant="outlined" color="success" sx={{ color:'#041C32', mb:2, mt:2}}>Comprar</Button>
+      </Link>
     </Card>
   )
 }

@@ -30,15 +30,12 @@ const ItemCount = ({initial, stock }) => {
   }
 
   return (
-    <>
-      <Box component="span" sx={{ 
+      <Box component="div" sx={{ 
         bgcolor: '#fff',
-        boxShadow: 5,
+        fontWeight: 'medium',
+        boxShadow: 9,
         borderRadius: 2,
-        p: 1,
-        m: 2,
-        mt: 0,
-        color: '#000',
+        color: '#04293A',
         display: 'flex', flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'center',
@@ -48,7 +45,6 @@ const ItemCount = ({initial, stock }) => {
         {itemCount}
         <Button size="small" variant="outlined" color="success" onClick={addItem}>+</Button>
       </Box>
-    </>
   )
 }
 export default ItemCount;
