@@ -36,7 +36,7 @@ export default function ItemDetailContainer() {
   }, [])
 
   return (
-    <Container component="main" maxWidth="md" sx={{ mb: 4, display:'flex', flexDirection:'column', alignItems: 'center' }}>
+    <Container component="main" sx={{ mb: 4, display:'flex', flexDirection:'column', alignItems: 'center' }}>
       {
         loading
         ?
@@ -57,12 +57,11 @@ export default function ItemDetailContainer() {
           border: 1, 
           borderRadius: 8, 
           height:'auto',
-          maxHeight: 700, 
           borderColor: 'grey.500', 
           flexDirection: 'row',
           justifyContent: 'center'
           }} >
-          <ItemDetail data={Item} />
+          <ItemDetail data={Item}/>
         </Box>
         </>
       }

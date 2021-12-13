@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "../NavBar/NavBar";
 import HomePage from "../../pages/HomePage/HomePage"
 import ItemDetailPage from "../../pages/ItemDetailPage/ItemDetailPage"
+import CategoryDetailPage from "../../pages/CategoryPage/CategoryPage"
 
 
 export default function AppRouter() {
@@ -9,6 +10,7 @@ export default function AppRouter() {
     <BrowserRouter>
       <Navbar />
       <Routes>
+        <Route path='/category/:category' element={<CategoryDetailPage />}></Route>
         <Route path='/products/:id' element={<ItemDetailPage />}></Route>
         <Route path='/' element={<HomePage />}></Route>
         <Route path='*' element={<HomePage />}></Route>

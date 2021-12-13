@@ -24,7 +24,7 @@ const Item = ({ data }) => {
 
   return (
     <Card sx={{ 
-      maxWidth: 345, 
+      maxWidth: '345px', 
       p:1, 
       border: 2,
       boxShadow: 7, 
@@ -42,8 +42,6 @@ const Item = ({ data }) => {
         image={thumbnail}
         margin= 'auto'
         display= 'block'
-        maxWidth= '100%'
-        maxHeight= '100%'
         sx={{ borderBottom: 2, borderColor:'#064663' }}
       />
       <CardContent component='div' sx={{ pr:2, pl:2, m:0 }}>

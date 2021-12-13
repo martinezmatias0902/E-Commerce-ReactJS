@@ -12,18 +12,16 @@ import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import ItemCounter from '../ItemCounter/ItemCounter'
+import Typography from '@mui/material/Typography';
 
 export default function ItemDetail({ data }) {
 
   const { thumbnail, title, price, attributes, available_quantity } = data
-
-  console.log(data)
   
   return (
     <Box sx={{ 
         width: 'auto', 
-        maxHeight: 700, 
-        width: '100%',
+        maxHeight: '700px', 
         display: 'flex',
         flexDirection: 'row' ,
         justifyContent: 'center'
@@ -70,29 +68,32 @@ export default function ItemDetail({ data }) {
             justifyContent: 'center',
             alignItems: 'center',
             boxShadow:0 }}>
+            <Typography align="center" variant="h5" sx={{ fontWeight:'bold', pb:2, color: '#064663' }}>
+              Precio: $ {price}
+            </Typography>
             <CardActions>
               <ItemCounter initial={0} stock={available_quantity}></ItemCounter>
             </CardActions>
             <Button variant='contained' color='success' sx={{ bgcolor:'#041C32', color:'#ECB365', mb:2, mt:2}}>Comprar</Button>
           </Card>
         </Paper>
-        <Paper elevation={20} sx={{m:1, ml:3}}>
+        <Paper elevation={20} sx={{m:1, ml:3, width:'350px'}}>
           <ImageListItem key="Subheader" sx={{ width:'100%' }}>
             <ListSubheader component="div" sx={{bgcolor: '#041C32', color: '#ECB365', width:'100%'}}>Description</ListSubheader>
           </ImageListItem>
             <List dense={true} 
               sx={{
                 width: '100%',
-                maxWidth: 360,
+                maxWidth: '360px',
                 position: 'relative',
                 overflow: 'auto',
-                maxHeight: '90%',
+                maxHeight: '600px',
               }}
             >
               {
                 attributes.map( (item) => {
                   return (
-                    <ListItem>
+                    <ListItem key={item.name}>
                       <ListItemText sx={{ color: 'info.main' }} primary={item.name} secondary={item.value_name}/>
                     </ListItem>
                   )

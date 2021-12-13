@@ -27,7 +27,7 @@ const NavBar = () => {
 
   return (
     <AppBar position="static" sx={{ bgcolor:'#041C32', mb:5 }}>
-      <Container maxWidth="xl">
+      <Container >
         <Toolbar disableGutters>
           
             <Typography
@@ -36,7 +36,7 @@ const NavBar = () => {
               component="div"
               sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
             >
-              <Link to='/' style={{ textDecoration: 'none' }}>CoderHouse</Link>
+              <Link to='/' style={{ textDecoration: 'none', color:'#ECB365' }}>CoderHouse</Link>
             </Typography>
           
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -74,13 +74,13 @@ const NavBar = () => {
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to="/category" style={{ textDecoration: 'none' }}>
-                  <Typography textAlign="center">Category</Typography>
+                <Link to={`/category/${'placasdevideo'}`} style={{ textDecoration: 'none' }}>
+                  <Typography textAlign="center">Placas de Video</Typography>
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to="/products/123" style={{ textDecoration: 'none' }}>
-                  <Typography textAlign="center">Product</Typography>
+                <Link to={`/category/${'procesadores'}`} style={{ textDecoration: 'none' }}>
+                  <Typography textAlign="center">Procesadores</Typography>
                 </Link>
               </MenuItem>
             </Menu>
@@ -98,11 +98,11 @@ const NavBar = () => {
               <Link to='/' style={{ textDecoration: 'none' }}>
                 <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Home</Button>
               </Link>
-              <Link to='/category' style={{ textDecoration: 'none' }}>
-                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Category</Button>
+              <Link to={`/category/${'placasdevideo'}`} style={{ textDecoration: 'none' }}>
+                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Placas de Video</Button>
               </Link>
-              <Link to='/products/123' style={{ textDecoration: 'none' }}>
-                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Product</Button>
+              <Link to={`/category/${'procesadores'}`} style={{ textDecoration: 'none' }}>
+                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Procesadores</Button>
               </Link>
           </Box>
 
