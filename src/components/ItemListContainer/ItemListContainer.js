@@ -2,27 +2,14 @@ import React from "react";
 import ItemList from "../ItemList/ItemList"
 import axios from 'axios'
 import { useState, useEffect } from "react";
+import CircularProgress from '@mui/material/CircularProgress';
+import Container from "@mui/material/Container";
 
-const productsFallback = [{
-  id: 1,
-  type: 'Remera',
-  nombre: 'Nirvana',
-  initial: 1,
-  stock: 5,
-  price: '2,500'
-}, {
-  id: 2,
-  type: 'Pantalon',
-  nombre: 'Levis',
-  initial: 3,
-  stock: 10,
-  price: '3,000'
-}
-]
 
 export default function ItemListContainer() {
 
-  const [ProductsList, setProduct] = useState(productsFallback)
+  const [ProductsList, setProduct] = useState()
+  const [loading, setLoading] = useState(true)
 
   const requestData = async () => {
     try{
@@ -38,15 +25,34 @@ export default function ItemListContainer() {
   }
 
   useEffect(() => {
-    requestData().then(res => {
-      console.log("Respuesta de RequestData: ", res)
-      setProduct(res)
-    })
+    setTimeout(() => {
+      requestData().then(res => {
+        setProduct(res)
+        setLoading(false)
+      })
+  }, 1000)
   }, [])
 
   return (
     <>
-      <ItemList data={ProductsList}/>
+      {
+        loading
+        ?
+        <Container sx={{
+          display:'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>
+          <CircularProgress
+              color='success'
+              timeout={1000}
+              sx={{mt:10}}
+          />
+        </Container>
+        :
+        <ItemList data={ProductsList}/>
+      }
     </>
   );
 }

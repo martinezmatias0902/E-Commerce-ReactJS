@@ -32,7 +32,7 @@ export default function ItemDetailContainer() {
         setItem(res)
         setLoading(false)
       })
-  }, 2000)
+  }, 1000)
   }, [])
 
   return (
@@ -44,7 +44,7 @@ export default function ItemDetailContainer() {
         <Typography variant="h6">Cargando...</Typography>
         <CircularProgress
             color='success'
-            timeout={3000}
+            timeout={1000}
         />
         </>
         :
