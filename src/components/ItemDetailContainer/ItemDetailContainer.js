@@ -36,22 +36,37 @@ export default function ItemDetailContainer() {
   }, [])
 
   return (
-    <Container component="main" maxWidth="md" sx={{ mb: 4 }}>
-      <Typography variant="h4" component="div" gutterBottom align="center" mt={5} >
-        Item Detail Container
-      </Typography>
-      <Box  sx={{ p: 2, boxShadow: 10, border: 1, borderRadius: 8, borderColor: 'grey.500', textAlign: 'center' }} >
-        {
-          loading
-          ?
-          <CircularProgress
+    <Container component="main" maxWidth="md" sx={{ mb: 4, display:'flex', flexDirection:'column', alignItems: 'center' }}>
+      {
+        loading
+        ?
+        <>
+        <Typography variant="h6">Cargando...</Typography>
+        <CircularProgress
             color='success'
             timeout={3000}
-          />
-          :
+        />
+        </>
+        :
+        <>
+        <Typography align='center' variant="h6" sx={{pb:3}}	>{Item.title}</Typography>
+        <Box sx={{ 
+          display: 'flex', 
+          p: 2, 
+          boxShadow: 10, 
+          border: 1, 
+          borderRadius: 8, 
+          height:'auto',
+          maxHeight: 700, 
+          borderColor: 'grey.500', 
+          flexDirection: 'row',
+          justifyContent: 'center'
+          }} >
           <ItemDetail data={Item} />
-        }
-      </Box>
+        </Box>
+        </>
+      }
+      
     </Container>
   );
 }

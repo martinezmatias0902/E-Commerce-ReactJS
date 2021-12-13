@@ -81,7 +81,7 @@ const Item = ({ data }) => {
         <ItemCounter initial={0} stock={available_quantity}></ItemCounter>
       </CardActions>
       <Link to={`/products/${id}`} style={{ textDecoration: 'none' }}>
-        <Button variant="outlined" color="success" sx={{ color:'#041C32', mb:2, mt:2}}>Comprar</Button>
+        <Button variant="outlined" color="success" sx={{ color:'#041C32', mb:2, mt:2}}>Detalle</Button>
       </Link>
     </Card>
   )
