@@ -34,7 +34,7 @@ export default function ItemListContainer() {
         setLoading(false)
       })
   }, 1000)
-  }, [])
+  }, [category])
 
   return (
     <>
