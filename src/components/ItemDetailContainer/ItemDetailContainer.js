@@ -65,7 +65,6 @@ export default function ItemDetailContainer() {
         </Box>
         </>
       }
-      
     </Container>
   );
 }

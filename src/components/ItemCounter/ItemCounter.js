@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-//<></> {}
+import {Link} from 'react-router-dom'
 
-const ItemCount = ({initial, stock }) => {
+const ItemCount = ({initial, stock, onAdd }) => {
+
   let [itemCount, setState] = useState(Number(initial))
 
+  
+  
   const addItem = () => {
     if (stock === undefined) {
       return console.log("error en el stock")
@@ -44,6 +47,11 @@ const ItemCount = ({initial, stock }) => {
         <Button size="small" variant="outlined" color="error" onClick={eliminateItem}>-</Button>
         {itemCount}
         <Button size="small" variant="outlined" color="success" onClick={addItem}>+</Button>
+        <Link to='/cart' style={{ textDecoration: 'none', color:'#ECB365' }}>
+          <Button variant='contained' color='success' onClick={() => onAdd(itemCount)} sx={{ bgcolor:'#041C32', mb:2, mt:2}}>
+            Comprar
+          </Button>
+        </Link>
       </Box>
   )
 }

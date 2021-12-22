@@ -13,11 +13,28 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import ItemCounter from '../ItemCounter/ItemCounter'
 import Typography from '@mui/material/Typography';
+import {Link} from 'react-router-dom';
+import { useState, useContext } from 'react';
+import CartContext from '../../context/CartContext';
 
 export default function ItemDetail({ data }) {
 
-  const { thumbnail, title, price, attributes, available_quantity } = data
+  const { thumbnail, title, price, attributes, available_quantity, id } = data
+
+  const { addProducts , products} = useContext(CartContext)
+  console.log('soy itemdetail, CartContext: ', CartContext)
   
+  const [itemCart, setItemCart] = useState({
+    name: title,
+    image: thumbnail,
+    id: id,
+    quantity: 0
+  })
+
+  const onAdd = (item) => {
+    setItemCart(itemCart.quantity = item)
+  }
+
   return (
     <Box sx={{ 
         width: 'auto', 
@@ -33,6 +50,7 @@ export default function ItemDetail({ data }) {
             justifyContent: 'center',
             alignItems: 'center', 
             alignContent: 'space-around' }}>
+
           <ImageList component="div" cols={1} 
             sx={{ 
               mt:1,
@@ -47,17 +65,14 @@ export default function ItemDetail({ data }) {
               borderRadius: 2, 
               borderColor: '#041C32', 
             }}>
+
             <ImageListItem sx={{width:'100%', height:'100%'}}>
               <img
               src={`${thumbnail}?w=248&fit=crop&auto=format`}
               srcSet={`${thumbnail}?w=248&fit=crop&auto=format&dpr=2 2x`}
               alt={title}
-              loading="lazy"
-            />
-            <ImageListItemBar
-              title={title}
-              subtitle={"$ " + price}
-            />
+              loading="lazy"/>
+              <ImageListItemBar title={title} subtitle={"$ " + price}/>
             </ImageListItem>
           </ImageList>
           <Card sx={{
@@ -68,15 +83,17 @@ export default function ItemDetail({ data }) {
             justifyContent: 'center',
             alignItems: 'center',
             boxShadow:0 }}>
+
             <Typography align="center" variant="h5" sx={{ fontWeight:'bold', pb:2, color: '#064663' }}>
               Precio: $ {price}
             </Typography>
+
             <CardActions>
-              <ItemCounter initial={0} stock={available_quantity}></ItemCounter>
+              <ItemCounter initial={0} stock={available_quantity} onAdd={onAdd}></ItemCounter>
             </CardActions>
-            <Button variant='contained' color='success' sx={{ bgcolor:'#041C32', color:'#ECB365', mb:2, mt:2}}>Comprar</Button>
           </Card>
         </Paper>
+
         <Paper elevation={20} sx={{m:1, ml:3, width:'350px'}}>
           <ImageListItem key="Subheader" sx={{ width:'100%' }}>
             <ListSubheader component="div" sx={{bgcolor: '#041C32', color: '#ECB365', width:'100%'}}>Description</ListSubheader>
